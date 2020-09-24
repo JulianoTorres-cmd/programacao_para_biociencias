@@ -1,0 +1,48 @@
+#QUESTAO1 DO EXERCICIO1 DE PROG2#
+import pandas
+x = pandas.read_excel(“/home/juliano/Downloads/WHO_POP_TB_some.xls”)
+print(x)
+
+#QUESTAO2 DO EXERCICIO1 DE PROG2#
+import pandas
+x = pandas.read_excel("/home/juliano/Downloads/WHO_POP_TB_some.xls")
+x_total = x['TB deaths'].sum()
+print(x_total)
+
+#QUESTAO3 DO EXERCICIO1 DE PROG2#
+import pandas
+x = pandas.read_excel("/home/juliano/Downloads/WHO_POP_TB_some.xls")
+x_ordem = x.sort_values('TB deaths')
+x_pri_ult = x_ordem.iloc[[0, -1]]
+print(x_pri_ult[['Country','TB deaths']].to_string(index=False, header=None))
+
+#QUESTAO4 DO EXERCICIO1 DE PROG2#
+import pandas
+x = pandas.read_excel("/home/juliano/Downloads/WHO_POP_TB_some.xls")
+x_media = x['TB deaths'].mean()
+x_mediana = x['TB deaths'].median()
+print('Media:',x_media,'Mediana:',x_mediana)
+
+#QUESTAO5 DO EXERCICIO1 DE PROG2#
+import pandas
+x = pandas.read_excel("/home/juliano/Downloads/WHO_POP_TB_some.xls")
+x_ordem = x.sort_values('TB deaths')
+print(x_ordem.to_string(index=False))
+
+#QUESTAO6 DO EXERCICIO1 DE PROG2#
+import pandas
+x = pandas.read_excel("/home/juliano/Downloads/WHO_POP_TB_some.xls")
+x_normal = x['Population (1000s)']/100
+x['taxa_de_morte'] = x['TB deaths']/x_normal
+print(x[['Country','taxa_de_morte']].to_string(index=False))
+
+#QUESTAO7 DO EXERCICIO1 DE PROG2#
+import pandas
+x = pandas.read_excel("/home/juliano/Downloads/WHO_POP_TB_some.xls")
+x_brics = x.iloc[[1, 2, 5, 8, 10]]
+x_total = x_brics['TB deaths'].sum()
+x_media = x_total/5
+print('Total de Mortes: ',x_total)
+print('Media de Mortes: ',x_media)
+
+
